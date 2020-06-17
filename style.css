@@ -46,7 +46,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid var(--glassEdges);
   z-index: 100;
   /* animation: directHit 1s 1 alternate; */
 }
