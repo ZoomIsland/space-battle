@@ -1,0 +1,1132 @@
+:root {
+  --glassEdges: rgb(84, 129, 162);
+  --dashColor: rgb(68, 83, 91)
+}
+* {
+  box-sizing: border-box
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+main {
+  height: 600px;
+  width: 800px;
+  border: 4px solid var(--glassEdges);
+  background-image: url("https://c.pxhere.com/images/e8/42/c7e75c1e7ac20eaa6c679d9cc1f1-1444403.jpg!d");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Player Console details */
+@keyframes directHit {
+  0% {margin-top: 5px; margin-left: -5px;}
+  20% {margin-top: -5px; margin-left: 5px;}
+  40% {margin-top: 5px;margin-left: -5px;}
+  60% {margin-top: -5px; margin-left: 5px;}
+  80% {margin-top: 5px;margin-left: -5px;}
+}
+.playerConsole {
+  height: 600px;
+  width: 800px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--glassEdges);
+  z-index: 100;
+  /* animation: directHit 1s 1 alternate; */
+}
+/* Console background details (glass panes, etc) */
+.backgroundGrid {
+  height: 600px;
+  width: 800px;
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+  grid-template-rows: 30% auto 30%;
+  position: absolute;
+}
+.topLeft,
+.topMiddle,
+.topRight,
+.bottomLeft,
+.bottomRight {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.bottomLeft,
+.bottomRight {
+  overflow: hidden;
+}
+/*Top row -- all "glass"*/
+.screenLineLeft,
+.screenLineRight {
+  width: 150%;
+  height: 150%;
+  border-bottom: 4px solid var(--glassEdges);
+  position: absolute;
+  top: -28%;
+}
+.screenLineLeft {
+  transform: rotate(25deg);
+  transform-origin: 100% 100%;
+  left: -50%;
+}
+.screenLineRight {
+  transform: rotate(-25deg);
+  transform-origin: 0% 100%;
+  right: -50%;
+}
+.topPaneLeft,
+.topPaneRight {
+  width: 60%;
+  height: 100%;
+  border-top: 4px solid var(--glassEdges);
+  position: absolute;
+  top: -28%;
+}
+.topPaneLeft {
+  transform: rotate(45deg);
+  transform-origin: -10% -50%;
+  left: 13%;
+}
+.topPaneRight {
+  transform: rotate(-45deg);
+  transform-origin: 110% -50%;
+  right: 13%;
+}
+/* middle row--all "glass"*/
+.center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.leftSlantedPane, 
+.rightSlantedPane {
+  border: 4px solid var(--glassEdges);
+  height: 100%;
+  z-index: 100;
+}
+.leftSlantedPane, 
+.rightSlantedPane {
+  width: 40%;
+}
+.middleOfSlantedPanes {
+  width: 20%;
+  height: 100%;
+  border-top: 4px solid var(--glassEdges);
+  border-bottom: 4px solid var(--glassEdges);
+  margin-top: -7.25%;
+}
+.leftSlantedPane {
+  transform: skewY(-20deg);
+}
+.rightSlantedPane {
+  transform: skewY(20deg);
+}
+/* dashboard row -- glass on L/R */
+.dashLineLeft,
+.dashLineRight {
+  width: 150%;
+  height: 150%;
+  border-bottom: 4px solid var(--glassEdges);
+  position: absolute;
+  top: 25%;
+}
+.dashLineLeft {
+  transform: rotate(160deg);
+  transform-origin: 50% 50%;
+  left: 15%;
+}
+.dashLineRight {
+  transform: rotate(200deg);
+  transform-origin: 50% 50%;
+  margin-left: -64.5%;
+}
+.dashLeft,
+.dashRight {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgb(4, 31, 74), rgb(2, 22, 54))
+}
+.bottomMiddle {
+  position: relative;
+}
+.dashWall,
+.dashFloor {
+  position: absolute;
+  width: 100%;
+}
+.dashWall {
+  height: 100%;
+  display: flex;
+}
+.dashFloor {
+  height: 20%;
+  background: linear-gradient(rgb(2, 22, 54), rgb(4, 31, 74));
+  bottom: 0;
+  z-index: 1;
+}
+.consoleLeft,
+.consoleRight,
+.consoleMiddle {
+  height: 100%;
+  z-index: 2;
+}
+.consoleLeft,
+.consoleRight {
+  width: 40%;
+}
+.consoleLeft {
+  transform: skewY(-20deg);
+}
+.consoleRight {
+  transform: skewY(20deg);
+}
+.consoleMiddle {
+  width: 20%;
+  margin-top: -7.25%;
+}
+.consoleLeft,
+.consoleMiddle,
+.consoleRight {
+  background: linear-gradient(rgb(4, 31, 74), rgb(2, 22, 54));
+}
+
+/* dashboard lip here */
+.dashboardLip {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  display: flex;
+}
+.lipLeft,
+.lipMiddle,
+.lipRight {
+  background: linear-gradient(rgb(48, 55, 66), rgb(39, 44, 51));
+  height: 100%;
+}
+.lipLeft,
+.lipRight {
+  border: 2px solid black;
+  width: 46.75%;
+}
+.lipMiddle {
+  width: 6.75%;
+  border-bottom: 2px solid black;
+  margin-top: -8.35%;
+}
+.lipLeft {
+  transform: skewY(-20deg);
+}
+.lipRight {
+  transform: skewY(20deg);
+}
+
+/* Dashboard background here */
+.dashboardActual {
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  bottom: 5%;
+  z-index: 3;
+  display: flex;
+}
+.dashboardLeft,
+.dashboardRight {
+  background: rgb(48, 55, 66);
+  height: 100%;
+}
+.dashboardLeft,
+.dashboardRight {
+  width: 50%;
+  z-index: 9;
+  border-bottom: 2px solid black;
+  margin-top: 0.25%;
+}
+.dashboardLeft {
+  transform: skew(10deg, -20deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboardCenter {
+  z-index: 10;
+  margin-top: -8%;
+  margin-left: -1.5%;
+  margin-right: -1.5%;
+  border-top: 117px solid black;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  height: 0;
+  width: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboardRight {
+  transform: skew(-10deg, 20deg);
+}
+.buttonLivesHere {
+  box-sizing: content-box;
+  z-index: 11;
+  border-top: 115px solid rgb(48, 55, 66);
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  height: 0;
+  width: 92%;
+  margin-left: -32%;
+  margin-right: -32%;
+  margin-top: -190%;
+  position: relative;
+  perspective: 100px;
+}
+
+/* Printer Visual */
+.printer {
+  width: 40%;
+  height: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transform: skewX(-2deg);
+  margin-left: 20%;
+}
+.printerTop,
+.printerSide,
+.printerBottom {
+  position: absolute;
+  width: 100%;
+  background: rgb(100, 106, 115);
+}
+.printerTop,
+.printerBottom {
+  height: 50%;
+  border: 2px solid black;
+  border-radius: 30%;
+}
+.printerTop {
+  z-index: 5;
+  margin-top: -15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.printerOpening {
+  width: 80%;
+  height: 30%;
+  background: black;
+  border-radius: 30%;
+}
+.printerSide {
+  z-index: 4;
+  height: 20%;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  margin-top: -10px;
+}
+.printerBottom {
+  z-index: 3;
+}
+.printout {
+  position: absolute;
+  width: 30%;
+  height: 160%;
+  top: 26%;
+  right: 25%;
+  z-index: 11;
+  transform: skewX(-2deg);
+}
+.behindPrintout,
+.printoutConnector,
+.printoutActualContainer {
+  width: 95%;
+  background: white;
+  position: absolute;
+}
+.behindPrintout {
+  left: 0;
+  top: -6.5%;
+  height: 10%;
+  border-radius: 75% 45% 0% 0%;
+  border: 2px solid black;
+}
+.printoutConnector {
+  right: 0;
+  height: 10%;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-radius: 0% 45% 0% 0%;
+  transform: rotate(-5deg);
+  top: -5%;
+}
+.printoutActualContainer {
+  height: 200px;
+  right: 0;
+  overflow: hidden;
+  top: -2.5%;
+}
+.printoutActual {
+  margin-top: -25%;
+  height: 125%;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+.printoutActual p {
+  margin: 0 auto;
+  font-family: Courier;
+  font-size: 8px;
+  color: black;
+  text-align: center;
+  padding: 5px;
+  border-top: 1px dashed black;
+}
+
+/* Fire Button Visual */
+.buttonContainer {
+  width: 100%;
+  height: 124px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  margin-top: -320%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg);
+}
+.buttonTop,
+.buttonHeight,
+.buttonBottom {
+  background: rgb(115, 6, 13);
+  width: 105%;
+}
+.buttonTop,
+.buttonBottom {
+  height: 35%;
+  border: 2px solid black;
+}
+.buttonTop {
+  border-radius: 45%;
+  border: 2px solid black;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 300px;
+}
+.fireText {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgb(194, 8, 20);
+  text-shadow: 0px 3px rgba(0,0,0, 0.5);
+  margin-top: -2px;
+  pointer-events: none;
+}
+.buttonHeight {
+  height: 6%;
+  z-index: 4;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  margin-top: -30%;
+  transition: 250ms;
+}
+.buttonContainer:hover .buttonHeight {
+  height: 4%;
+}
+.buttonContainer:active .buttonHeight {
+  height: 0.5%;
+}
+.buttonBottom {
+  margin-top: -35%;
+  border-radius: 45%;
+  z-index: 3;
+}
+.buttonInset {
+  background: rgb(100, 106, 115);
+  width: 125%;
+  height: 40%;
+  border-radius: 45%;
+  margin-top: -75%;
+  border: 2px solid black;
+}
+/* Power Bars for Button */
+.buttonPower {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin-top: -100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg);
+}
+.powerOn,
+.powerOff {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-gap: 2px;
+  
+}
+.powerBar {
+  z-index: 14;
+  background: radial-gradient(rgb(219, 13, 13), rgb(92, 6, 6));
+}
+.emptyPower {
+  z-index: 13;
+  background: radial-gradient(rgb(71, 5, 5), rgb(33, 1, 1));
+}
+.powerBar,
+.emptyPower {
+  width: 90%;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+/* Hull container visual */
+.hullContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+.hullText h2 {
+  transform: skewX(-1deg);
+  text-align: center;
+  font-family: sans-serif;
+  color: rgb(100, 106, 115);
+  text-shadow: 2px 3px rgba(0,0,0,0.5);
+  margin-top: 0;
+  pointer-events: none;
+}
+.playerHullPts,
+.hullWindows {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 75%;
+  height: 60%;
+  display: grid;
+  transform: skewX(-1deg);
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 50% 50%;
+  grid-gap: 5px;
+}
+.emptyPlayerHullPt,
+.playerHullPt {
+  border: 2px solid black;
+}
+.emptyPlayerHullPt {
+  background: radial-gradient(rgb(71, 5, 5), rgb(33, 1, 1));
+  z-index: 12;
+}
+.playerHullPt {
+  background: radial-gradient(rgb(219, 13, 13), rgb(92, 6, 6));
+  z-index: 13;
+}
+/* Player gun visuals */
+.playerGuns {
+  position: absolute;
+  bottom: 20%;
+  z-index: 2;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+.gunLeft,
+.gunRight {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.gunLeft {
+  transform: rotate(-20deg);
+  margin-left: -2.5%;
+}
+.gunRight {
+  transform: rotate(-160deg);
+  margin-right: -2.5%;
+}
+.gunTip,
+.gunStock,
+.gunBase {
+  height: 25%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.baseLength,
+.baseConnector,
+.stockLength,
+.stockConnector,
+.tipBase,
+.tipLength,
+.tipEnd {
+  background: grey;
+}
+.gunBase {
+  width: 25%;
+  z-index: 10;
+}
+.baseLength {
+  width: 85%;
+  height: 100%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  z-index: 10;
+}
+.baseConnector {
+  width: 15%;
+  height: 100%;
+  margin-left: -7.5%;
+  border-radius: 50%;
+  border: 2px solid black;
+  z-index: 9;
+}
+.gunStock {
+  width: 50%;
+  z-index: 8;
+  margin-left: -10%;
+}
+.stockLength,
+.stockConnector {
+  height: 50%;
+}
+.stockLength {
+  width: 85%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  z-index: 8;
+}
+.stockConnector {
+  width: 7.5%;
+  margin-left: -3.75%;
+  border-radius: 50%;
+  border: 2px solid black;
+  z-index: 7;
+}
+.gunTip {
+  width: 25%;
+  margin-left: -8%;
+  z-index: 5;
+}
+.tipBase,
+.tipLength,
+.tipEnd {
+  height: 75%;
+}
+.tipBase {
+  width: 17.5%;
+  border-radius: 50%;
+  border: 2px solid black;
+  z-index: 5;
+}
+.tipLength {
+  width: 70%;
+  margin-left: -8.75%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  z-index: 4;
+}
+.tipEnd {
+  width: 17.5%;
+  margin-left: -8.75%;
+  border-radius: 50%;
+  border: 2px solid black;
+  z-index: 3;
+}
+/* set below with 2.5s animation */
+@keyframes playerFireMiss {
+  from {left:25%; height: 3%; width: 20%;}
+  to {left: 400%; height: 0%; width: 0%;}
+}
+/* set below with .75s animation */
+@keyframes playerFireHit {
+  from {left:25%; height: 3%; width: 20%;}
+  to {left: 205%; height: 1.5%; width: 10%;}
+}
+/* below applies to first enemy ship
+   moves it so that the "missed shot" animates as a miss */
+@keyframes enemyMoveMiss {
+  0% {margin-top: 0%;}
+  40% {margin-top: -45%;}
+  60% {margin-top: -45%;}
+  100% {margin-top: 0%;}
+}
+.playerFireLeft,
+.playerFireRight {
+  position: absolute;
+  height: 3%;
+  width: 20%;
+  left: 25%;
+  background: red;
+  box-shadow: 2px 2px 4px red,
+              2px -2px 4px red,
+              -2px 0px 4px red;
+}
+/* End of Player Console details */
+
+/*space containers details*/
+.space {
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: absolute;
+  overflow: hidden;
+}
+@keyframes enemyArrival {
+  from {margin-top: -1200px;}
+  to {margin-top: -300px;}
+}
+.enemyShips {
+  height: 400px;
+  width: 800px;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  margin-top: -850px;
+  align-items: center;
+  justify-items: center;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+/* Enemy Ship visuals*/
+.enemyShip {
+  height:150px;
+  width: 150px;
+  margin: 0 auto;
+}
+.bobbingDiv {
+  width: 100%;
+  height: 100%;
+  animation: bob 3s infinite;
+  animation-direction: alternate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.attachmentContainer,
+.aboveShipContainer,
+.underShipContainer {
+  overflow: hidden;
+}
+.ball,
+.wire,
+.attachment,
+.aboveShip,
+.shipTop,
+.hullHolder, 
+.hullPt,
+.window,
+.shipBottom,
+.underShip {
+  border: 1px solid black;
+}
+.antenna {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 20%;
+  margin-bottom: -1%;
+}
+.ball,
+.wire {
+  background: rgb(94, 87, 99);
+}
+.ball {
+  width: 15%;
+  height: 20%;
+  border-radius: 50%;
+  margin-bottom: -2px;
+}
+.wire {
+  width: 6%;
+  height: 55%;
+  margin-bottom: -5%;
+}
+.attachmentContainer {
+  height: 30%;
+  width: 100%;
+  margin-bottom: -5px;
+}
+.attachment {
+  background: rgb(43, 33, 51);
+  height: 200%;
+  border-radius: 100% 100% 0% 0%;
+}
+
+.hullHolder {
+  position: relative;
+  width: 68%;
+  height: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(56, 42, 66);
+  border-radius: 105px / 15px;
+  z-index: 10;
+}
+.enemyHull,
+.hullGlass {
+  position: absolute;
+  width: 95%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-column-gap: 3%;
+  border-radius: 20%;
+  overflow: hidden;
+}
+.enemyHull {
+  z-index: 6;
+}
+.hullPt {
+  background: radial-gradient(rgb(209, 13, 13), rgb(153, 9, 9));
+  opacity: 0;
+}
+.hullGlass {
+  z-index: 5;
+}
+.enemyWindow {
+  background: radial-gradient(rgb(4, 36, 89), rgb(4, 20, 46));
+}
+.shipTop,
+.shipBottom {
+  background: rgb(86, 65, 102);
+  height: 9%;
+  width: 73%;
+  z-index: 5;
+}
+.shipTop {
+  border-radius: 100% 100% 25% 25%;
+  margin-bottom: -4%;
+}
+.shipBottom {
+  border-radius: 25% 25% 100% 100%;
+  margin-top: -4%;
+}
+.aboveShipContainer,
+.underShipContainer {
+  height: 14%;
+  width: 70%;
+}
+.aboveShipContainer {
+  margin-bottom: -8%;
+}
+.underShipContainer {
+  margin-top: -8%;
+}
+.aboveShip,
+.underShip {
+  width: 100%;
+  z-index: 4;
+  height: 160%;
+  background: rgb(56, 42, 66);
+}
+.aboveShip {
+  border-radius: 80% 80% 0% 0%;
+  margin-bottom: -12%;
+}
+.underShip {
+  border-radius: 0% 0% 80% 80%;
+  margin-top: -12%;
+}
+/* Ship Positioning */
+.enemyShip:first-child {
+  grid-column-start: span 3;
+  grid-row: 3;
+  align-self: center;
+  width: 600px;
+  height: 600px;
+  z-index: 21;
+  animation-direction: alternate;
+}
+.enemyShip:nth-child(2) {
+  grid-row: 2;
+  grid-column: 1 / 3;
+  z-index: 20;
+}
+.enemyShip:nth-child(3) {
+  grid-row: 2;
+  grid-column: 2 / 4;
+  z-index: 19;
+}
+.enemyShip:nth-child(2),
+.enemyShip:nth-child(3) {
+  width: 200px;
+  height: 200px;
+}
+.enemyShip:nth-child(4) {
+  z-index: 18;
+}
+.enemyShip:nth-child(5) {
+  z-index: 17;
+}
+.enemyShip:nth-child(6) {
+  z-index: 16;
+}
+.enemyShip:nth-child(4),
+.enemyShip:nth-child(5),
+.enemyShip:nth-child(6) {
+  width: 100px;
+  height: 100px;
+  margin: 160px 0px 0px 0px;
+}
+@keyframes bob {
+  from {margin-top: -5px;}
+  to {margin-top: 5px;}
+}
+/* Enemy Ship rearrangement movement */
+@keyframes ship2Move {
+  from {height: 200px; width: 200px; margin:0;}
+  to {height: 600px; width: 600px; margin: 262px 0px 0px 265px;}
+}
+@keyframes ship3Move {
+  from {margin:0;}
+  to {margin: 0px 0px 0px -525px;}
+}
+@keyframes ship4Move {
+  from {height: 100px; width: 100px; margin:160px 0px 0px 0px;}
+  to {height: 200px; width: 200px; margin: 262px 0px 0px 795px;}
+}
+@keyframes ship5Move {
+  from {margin:160px 0px 0px 0px;}
+  to {margin: 160px 0px 0px -525px;}
+}
+@keyframes ship6Move {
+  from {margin:160px 0px 0px 0px;}
+  to {margin: 160px 0px 0px -525px;}
+}
+
+/* Enemy shot details */
+@keyframes ringHit {
+  from {height: 0px; width: 0px; margin-top: -165px;}
+  to {height: 1200px; width: 1200px; margin-top: 0px;}
+}
+@keyframes ringMiss {
+  from {height: 0px; width: 0px; margin-top: -165px;}
+  to {height: 1200px; width: 1200px; margin-top: -800px;}
+}
+
+.ringsContainer {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 51;
+  margin-top: -165px;
+  margin-left: -6px;
+  animation-direction: forward;
+  opacity: 0;
+}
+.ringShot {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.outerRing,
+.middleRing,
+.innerRing {
+  border: 3px solid rgb(27, 179, 12);
+  box-shadow: 2px 2px 4px rgb(27, 242, 7),
+    -2px -2px 4px rgb(27, 242, 7),
+    2px -2px 4px rgb(27, 242, 7),
+    -2px 2px 4px rgb(27, 242, 7),
+    inset 2px 2px 4px rgb(27, 242, 7),
+    inset -2px -2px 4px rgb(27, 242, 7);
+  border-radius: 50%;
+  position: absolute;
+}
+.outerRing {
+  width: 80%;
+  height: 80%;
+}
+.middleRing {
+  width: 60%;
+  height: 60%;
+}
+.innerRing {
+  width: 40%;
+  height: 40%;
+}
+
+/* Explosion details */
+
+.explosion {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: rotate(-36deg);
+  z-index: 51;
+  opacity: 0;
+  --redBurst: rgb(179, 2, 2);
+  --yellowBurst: rgb(217, 166, 13);
+}
+.explosion h2 {
+  position: absolute;
+  color: var(--yellowBurst);
+  font-size: 14px;
+  z-index: 52;
+  transform: rotate(36deg);
+  text-shadow: 1px 1px black,
+                -1px 1px black,
+                1px -1px black,
+                -1px -1px black;
+  margin: 0;
+  padding: 0;
+}
+.burst,
+.smallBurst,
+.smallestBurst {
+  position: absolute;
+}
+.burst {
+  width: 70%;
+  height: 50%;
+  background: var(--redBurst);
+}
+.smallBurst {
+  width: 60%;
+  height: 40%;
+  background: var(--yellowBurst);
+}
+.smallestBurst {
+  width: 50%;
+  height: 30%;
+  background: var(--redBurst);
+}
+.burst2,
+.smallBurst2,
+.smallestBurst2 {
+  transform: rotate(15deg);
+}
+.burst3,
+.smallBurst3,
+.smallestBurst3 {
+  transform: rotate(30deg);
+}
+.burst4,
+.smallBurst4,
+.smallestBurst4 {
+  transform: rotate(45deg);
+}
+.burst5,
+.smallBurst5,
+.smallestBurst5 {
+  transform: rotate(60deg);
+}
+.burst6,
+.smallBurst6,
+.smallestBurst6 {
+  transform: rotate(75deg);
+}
+
+/*Dialogue Box*/
+.greyedOut {
+  --boxBackground: rgb(194, 184, 177);
+  --dialogueText: rgb(68, 83, 91);
+  position: absolute;
+  height: 600px;
+  width: 800px;
+  border: 4px solid var(--glassEdges);
+  pointer-events: none;
+  /*If you change how "retreat" works, consider making the below rgba(0,0,0,1)*/
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  z-index: 149;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.dialogueBox {
+  min-height: 80px;
+  max-height: 150px;
+  width: 300px;
+  background: var(--boxBackground);
+  pointer-events: none;
+  border-radius: 10px;
+  border: 2px solid var(--glassEdges);
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.5),
+              -1px 1px 2px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 148;
+}
+.dialogueBox h2,
+.dialogueBox p {
+  color: black;
+  width: 85%;
+  margin: 0;
+}
+.dialogueBox h2 {
+  margin-top: 5px;
+}
+.dialogueBox p {
+  margin: 5px;
+}
+#buttons {
+  display: flex;
+  justify-content: space-around;
+}
+button {
+  width: 125px;
+  height: 35px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 5px 10px;
+  pointer-events: auto;
+  cursor: pointer;
+  /* background: linear-gradient(15deg, var(--glassEdges), var(--boxBackground) 25%, var(--boxBackground) 75%, var(--glassEdges)); */
+  background: linear-gradient(-15deg, var(--boxBackground), var(--glassEdges));
+  border-radius: 5px;
+  border: 2px solid var(--glassEdges);
+  transition: box-shadow 100ms;
+}
+button:hover {
+  box-shadow: 2px 2px 5px rgba(0,0,0, 0.5);
+}

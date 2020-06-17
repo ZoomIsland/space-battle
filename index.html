@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./app.js"></script>
+    <title>Space-oo battle-oo!</title>
+</head>
+<body>
+  <main>
+    <!--Dialogue Box details below-->
+    <section id="greyBackground" class="greyedOut">
+        <section class="dialogueBox">
+            <h2 id="dialogueHeader"></h2>
+            <p id="dialogueGraf"></p>
+            <div id="buttons">
+                <button id="dialogueClose" onclick="closeDialogue('return')"></button>
+            </div>
+        </section>
+    </section>
+    <!--Player Console details below-->
+    <section class="playerConsole">
+      <section class="backgroundGrid">
+        <div class="topLeft">
+          <div class="screenLineLeft">
+          </div>
+        </div>
+        <div class="topMiddle">
+          <div class="topPaneLeft">
+          </div>
+          <div class="topPaneRight">
+          </div>
+        </div>
+        <div class="topRight">
+          <div class="screenLineRight">
+          </div>
+        </div>
+        <div class="centerLeft">
+        </div>
+        <div class="center">
+          <div class="leftSlantedPane">
+          </div>
+          <div class="middleOfSlantedPanes">
+          </div>
+          <div class="rightSlantedPane">
+          </div>
+        </div>
+        <div class="centerRight">
+        </div>
+        <div class="bottomLeft">
+          <div class="dashLineLeft">
+            <div class="dashLeft">
+            </div>
+          </div>
+        </div>
+        <div class="bottomMiddle">
+          <div class="dashWall">
+            <div class="consoleLeft">
+            </div>
+            <div class="consoleMiddle">
+            </div>
+            <div class="consoleRight">
+            </div>
+          </div>
+          <div class="dashFloor">
+          </div>
+        </div>
+        <div class="bottomRight">
+          <div class="dashLineRight">
+            <div class="dashRight">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="dashboardActual">
+        <div class="dashboardLeft">
+          <div class="printer">
+            <div class="printerTop">
+              <div class="printerOpening">
+              </div>
+            </div>
+            <div class="printerSide">
+            </div>
+            <div class="printerBottom">
+            </div>
+          </div>
+          <div class="printout">
+            <div class="behindPrintout">
+            </div>
+            <div class="printoutConnector">
+            </div>
+            <div class="printoutActualContainer">
+              <div class="printoutActual">
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboardCenter">
+          <div class="buttonLivesHere">
+            <div id="assemblyFire" class="buttonContainer" onclick="gameData.assemblyShip.onTurn()">
+              <div class="buttonTop">
+                <div class="fireText">FIRE</div>
+              </div>
+              <div class="buttonHeight">
+              </div>
+              <div class="buttonBottom">
+              </div>
+              <div class="buttonInset">
+              </div>
+            </div>
+            <div class="buttonPower">
+              <div class="powerOn">
+                <div class="powerBar"></div>
+                <div class="powerBar"></div>
+                <div class="powerBar"></div>
+                <div class="powerBar"></div>
+                <div class="powerBar"></div>
+              </div>
+              <div class="powerOff">
+                <div class="emptyPower"></div>
+                <div class="emptyPower"></div>
+                <div class="emptyPower"></div>
+                <div class="emptyPower"></div>
+                <div class="emptyPower"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboardRight">
+          <div class="hullContainer">
+            <div class="hullText">
+              <h2>HULL</h2>
+            </div>
+            <div class="hullWindows">
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+              <div class="emptyPlayerHullPt">
+              </div>
+            </div>
+            <div class="playerHullPts">
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+              <div class="playerHullPt">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="dashboardLip">
+        <div class="lipLeft">
+        </div>
+        <div class="lipMiddle">
+        </div>
+        <div class="lipRight">
+        </div>
+      </section>
+      <section class="playerGuns">
+        <div class="gunLeft">
+          <div class="gunBase">
+            <div class="baseLength"></div>
+            <div class="baseConnector"></div>
+          </div>
+          <div class="gunStock">
+            <div class="stockLength"></div>
+            <div class="stockConnector"></div>
+          </div>
+          <div class="gunTip">
+            <div class="tipBase"></div>
+            <div class="tipLength"></div>
+            <div class="tipEnd"></div>
+          </div>
+          <div class="playerFireLeft"></div>
+        </div>
+        <div class="gunRight">
+          <div class="gunBase">
+            <div class="baseLength"></div>
+            <div class="baseConnector"></div>
+          </div>
+          <div class="gunStock">
+            <div class="stockLength"></div>
+            <div class="stockConnector"></div>
+          </div>
+          <div class="gunTip">
+            <div class="tipBase"></div>
+            <div class="tipLength"></div>
+            <div class="tipEnd"></div>
+          </div>
+          <div class="playerFireRight"></div>
+        </div>
+      </section>
+    </section>
+    <!--Explosion here, opacity @ 0 until direct hit-->
+    <section class="explosion">
+      <h2 class="burstText">BLAM!</h2>
+      <div class="burst burst1">
+      </div>
+      <div class="burst burst2">
+      </div>
+      <div class="burst burst3">
+      </div>
+      <div class="burst burst4">
+      </div>
+      <div class="burst burst5">
+      </div>
+      <div class="burst burst6">
+      </div>
+      <div class="smallBurst smallBurst1">
+      </div>
+      <div class="smallBurst smallBurst2">
+      </div>
+      <div class="smallBurst smallBurst3">
+      </div>
+      <div class="smallBurst smallBurst4">
+      </div>
+      <div class="smallBurst smallBurst5">
+      </div>
+      <div class="smallBurst smallBurst6">
+      </div>
+      <div class="smallestBurst smallestBurst1">
+      </div>
+      <div class="smallestBurst smallestBurst2">
+      </div>
+      <div class="smallestBurst smallestBurst3">
+      </div>
+      <div class="smallestBurst smallestBurst4">
+      </div>
+      <div class="smallestBurst smallestBurst5">
+      </div>
+      <div class="smallestBurst smallestBurst6">
+      </div>
+    </section>
+    <!--Enemy Ship details below-->
+    <section class="space">
+      <div class="ringsContainer">
+        <div class="ringShot">
+          <div class="outerRing">
+          </div>
+          <div class="middleRing">
+          </div>
+          <div class="innerRing">
+          </div>
+        </div>
+      </div>
+      <div class="enemyShips" id="enemyShips">
+          <!-- Enemy ships populate here-->
+      </div>
+    </section>
+  </main>
+</body>
+</html>
