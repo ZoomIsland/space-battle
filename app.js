@@ -28,6 +28,9 @@ class PlayerShip extends Ship {
         adjustPrintout("Hull damaged!");
         let hullDiv = document.querySelector('.playerHullPts');
         let currentHullPt = hullDiv.lastElementChild;
+        if (this.hull < damage) {
+            damage = this.hull;
+        }
         for (let i = 0; i < damage; i++) {
             while (currentHullPt.style.opacity === "0") {
                 if (currentHullPt.previousSibling) {
